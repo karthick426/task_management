@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: 99 102 241; /* #6366F1 */
+    --color-secondary: 139 92 246; /* #8B5CF6 */
+    --color-accent: 6 182 212; /* #06B6D4 */
+    --color-bg: 15 23 42; /* #0F172A */
+    --color-card: 30 41 59; /* #1E293B */
+    --color-text: 248 250 252; /* #F8FAFC */
+    --color-border: 255 255 255 / 0.08;
+    --font-family: 'Outfit', sans-serif;
+  }
+
+  .theme-light {
+    --color-primary: 79 70 229; /* Indigo 600 */
+    --color-secondary: 124 58 237; /* Violet 600 */
+    --color-accent: 13 148 136; /* Teal 600 */
+    --color-bg: 248 250 252; /* Slate 50 */
+    --color-card: 255 255 255; /* White */
+    --color-text: 15 23 42; /* Slate 900 */
+    --color-border: 0 0 0 / 0.08;
+  }
+
+  .theme-cyberpunk {
+    --color-primary: 236 72 153; /* Pink 500 */
+    --color-secondary: 168 85 247; /* Purple 500 */
+    --color-accent: 234 179 8; /* Yellow 500 */
+    --color-bg: 24 14 36; /* Very Dark Pinkish Purple */
+    --color-card: 45 25 65; /* Lighter Purple */
+    --color-text: 255 255 255; /* White */
+    --color-border: 236 72 153 / 0.2;
+  }
+
+  body {
+    background-color: rgb(var(--color-bg));
+    color: rgb(var(--color-text));
+    font-family: var(--font-family);
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.3);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.6);
+}
+
+/* Custom Glassmorphism Classes */
+.glass-panel {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(var(--color-card), 0.7);
+  border: 1px solid rgba(var(--color-border));
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+}
+
+.glass-card {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  background-color: rgba(var(--color-card), 0.45);
+  border: 1px solid rgba(var(--color-border));
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(99, 102, 241, 0.3);
+  box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.15), 0 8px 10px -6px rgba(99, 102, 241, 0.15);
+}
+
+.glass-input {
+  background-color: rgba(15, 23, 42, 0.4);
+  border: 1px solid rgba(var(--color-border));
+  color: rgb(var(--color-text));
+  transition: all 0.3s ease;
+}
+
+.glass-input:focus {
+  background-color: rgba(15, 23, 42, 0.6);
+  border-color: rgb(var(--color-primary));
+  box-shadow: 0 0 0 2px rgba(var(--color-primary), 0.2);
+  outline: none;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, rgb(var(--color-primary)), rgb(var(--color-secondary)), rgb(var(--color-accent)));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Hide Default Drag Image Ghost */
+.dragging {
+  opacity: 0.5;
+  transform: scale(0.98);
+}
